@@ -7,7 +7,6 @@
 body {
     font-family: 'Press Start 2P', cursive;
     /* Sugestão de fonte estilo retro game */
-
     color: #e0e0e0;
     display: flex;
     justify-content: center;
@@ -26,150 +25,249 @@ body {
     object-position: center;
 }
 
-
 .container {
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     align-items: center;
-    text-align:center;
-    padding:20px;
-    border-radius:15px;
-    border:2pxsolid#0f3460;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 h1 {
-    color:#e94560;
+    color: #e94560;
 }
 
 .placar {
-    display:flex;
-    justify-content:space-around;
-    font-size:1.5em;
-    margin:20pxauto;
-    padding:10px;
-    background-color:#000; 
-    border:4pxsolid#e0e0e0;
-    border-radius:8px;
-    box-shadow:inset0010px#000;
-    width:100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5em;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #000;
+    border: 4px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px #000;
+    width: 100%;
 }
 
-#placar-jogador, #placar-maquina {
-    color:#fcdf3a; 
-    text-shadow:2px2px0px#c14444;
+#placar-jogador,
+#placar-maquina {
+    color: #fcdf3a;
+    text-shadow: 2px 2px 0px #c14444;
 }
 
 .arena {
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    height:450px; 
-    margin-bottom:20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    height: 450px;
+    margin-bottom: 20px;
 }
 
 .carta {
-    width:300px;
-    height:100%;
-    background-color:#e0e0e0;
-    color:#16213e;
-    border-radius:10px;
-    padding:15px;
-    box-shadow:04px8pxrgba(0,0,0,0.5);
-    display:flex;
-    flex-direction:column;
+    width: 300px;
+    height: 100%;
+    background-color: #e0e0e0;
+    color: #16213e;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
 }
 
 .carta.verso {
-    background-color:#e94560;
-    background-image:url('https://deckofcardsapi.com/static/img/back.png'); /* Exemplo de verso de carta */
-    background-size:50%;
-    background-repeat:no-repeat;
-    background-position:center;
+    background-color: #e94560;
+    background-image: url('https://deckofcardsapi.com/static/img/back.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .carta-nome {
-    font-size:1.5em;
-    font-weight:bold;
-    margin-bottom:10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .carta-imagem {
-    width:90%;
-    max-height:150px;
-    object-fit:contain;
-    align-self:center;
-    margin-bottom:15px;
+    width: 90%;
+    max-height: 150px;
+    object-fit: contain;
+    align-self: center;
+    margin-bottom: 15px;
 }
 
 .carta-atributos ul {
-    list-style:none;
-    padding:0;
-    text-align:left;
+    list-style: none;
+    padding: 0;
+    text-align: left;
 }
 
 .carta-atributos li {
-    padding:8px;
-    margin-bottom:5px;
-    background-color:#f1f1f1;
-    border-radius:5px;
-    cursor:pointer;
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
 
 .carta-atributos li:hover {
-    background-color:#e94560;
-    color:white;
-    transform:scale(1.05);
+    background-color: #e94560;
+    color: white;
+    transform: scale(1.05);
 }
 
 .controles button {
-    padding:10px20px;
-    font-size:1em;
-    font-family:inherit;
-    background-color:#0f3460;
-    color:#e0e0e0;
-    border:2pxsolid#e94560;
-    border-radius:5px;
-    cursor:pointer;
-    margin:010px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-family: inherit;
+    background-color: #0f3460;
+    color: #e0e0e0;
+    border: 2px solid #e94560;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
     transition: background-color 0.3s;
 }
 
 .controles button:disabled {
-    cursor:not-allowed;
-    opacity:0.5;
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .controles button:hover:not(:disabled) {
-    background-color:#e94560;
+    background-color: #e94560;
 }
 
 .resultado {
-    margin-top:20px;
-    font-size:1.2em;
-    height:30px;
-    font-weight:bold;
+    margin-top: 20px;
+    font-size: 1.2em;
+    height: 30px;
+    font-weight: bold;
 }
 
 .pause-overlay {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background-color:rgba(22, 33, 62, 0.85); 
-    color:#e94560;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:2.5em;
-    border-radius:15px; 
-    text-shadow:3px3px0px#1a1a2e;
-    z-index:10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(22, 33, 62, 0.85);
+    color: #e94560;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    border-radius: 15px;
+    text-shadow: 3px 3px 0px #1a1a2e;
+    z-index: 10;
 }
 
 .hidden {
-    display:none; 
+    display: none;
+}
+
+/* 🔹 RESPONSIVIDADE 🔹 */
+
+/* Telas menores que 1024px (tablets e notebooks pequenos) */
+@media (max-width: 1024px) {
+    .arena {
+        flex-wrap: wrap;
+        gap: 20px;
+        height: auto;
+    }
+
+    .carta {
+        width: 260px;
+        height: auto;
+    }
+
+    .placar {
+        font-size: 1.2em;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/* Telas menores que 768px (tablets em pé e celulares grandes) */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    .arena {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .carta {
+        width: 80%;
+        height: auto;
+    }
+
+    .carta-nome {
+        font-size: 1.2em;
+    }
+
+    .controles button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+}
+
+/* Telas menores que 480px (celulares) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1em;
+    }
+
+    .arena {
+        gap: 10px;
+    }
+
+    .carta {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .carta-nome {
+        font-size: 1em;
+    }
+
+    .carta-atributos li {
+        padding: 6px;
+        font-size: 0.8em;
+    }
+
+    .placar {
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    .controles button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .resultado {
+        font-size: 1em;
+    }
 }
