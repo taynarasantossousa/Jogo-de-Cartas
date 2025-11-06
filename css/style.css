@@ -6,13 +6,15 @@
 
 body {
     font-family: 'Press Start 2P', cursive;
-    /* Sugestão de fonte estilo retro game */
     color: #e0e0e0;
+    /* NOVO MÉTODO DE CENTRALIZAÇÃO FLEXBOX */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    overflow-y: auto; /* Permite rolagem no PC se o conteúdo for grande */
+    padding: 20px 0; 
 }
 
 #bg-video {
@@ -23,17 +25,18 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    z-index: -1; 
 }
 
 .container {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+    /* REMOVIDO position: absolute, transform, top, left */
     align-items: center;
     text-align: center;
     padding: 20px;
     border-radius: 15px;
+    width: 95%; 
+    max-width: 1000px; 
+    margin: auto; /* Centraliza o container */
 }
 
 h1 {
@@ -51,6 +54,7 @@ h1 {
     border-radius: 8px;
     box-shadow: inset 0 0 10px #000;
     width: 100%;
+    max-width: 650px;
 }
 
 #placar-jogador,
@@ -63,13 +67,16 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 40px;
-    height: 450px;
+    min-height: 450px; 
+    height: auto; 
     margin-bottom: 20px;
+    align-items: flex-start; /* Alinha o topo das cartas */
 }
 
 .carta {
     width: 300px;
-    height: 100%;
+    min-height: 450px; 
+    height: 100%; /* Ocupa o espaço que precisar */
     background-color: #e0e0e0;
     color: #16213e;
     border-radius: 10px;
@@ -101,6 +108,28 @@ h1 {
     margin-bottom: 15px;
 }
 
+/* ESTILO DA HABILIDADE PARA MANTER O TAMANHO */
+.carta-habilidade {
+    font-size: 0.8em;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background-color: #f1f1f1;
+    color: #16213e; 
+    border-radius: 5px;
+    text-align: left;
+    font-family: Arial, sans-serif; 
+    font-weight: 600;
+    border: 1px solid #0f3460;
+    min-height: 60px; /* GARANTE O TAMANHO FIXO */
+}
+
+/* SE ESTIVER VAZIO, REMOVE A APARÊNCIA, MAS MANTÉM O ESPAÇO */
+.carta-habilidade:empty {
+    background-color: transparent;
+    border-color: transparent;
+}
+
 .carta-atributos ul {
     list-style: none;
     padding: 0;
@@ -122,6 +151,13 @@ h1 {
     transform: scale(1.05);
 }
 
+.controles {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 10px; 
+}
+
 .controles button {
     padding: 10px 20px;
     font-size: 1em;
@@ -131,7 +167,7 @@ h1 {
     border: 2px solid #e94560;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 10px;
+    margin: 0; /* Remove a margem externa desnecessária */
     transition: background-color 0.3s;
 }
 
@@ -174,7 +210,6 @@ h1 {
 
 /* 🔹 RESPONSIVIDADE 🔹 */
 
-/* Telas menores que 1024px (tablets e notebooks pequenos) */
 @media (max-width: 1024px) {
     .arena {
         flex-wrap: wrap;
@@ -195,16 +230,13 @@ h1 {
     }
 }
 
-/* Telas menores que 768px (tablets em pé e celulares grandes) */
 @media (max-width: 768px) {
     body {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
+        padding: 10px 0; 
     }
 
     .container {
-        width: 90%;
+        width: 95%;
         padding: 15px;
     }
 
@@ -219,24 +251,18 @@ h1 {
     }
 
     .carta {
-        width: 80%;
+        width: 90%;
         height: auto;
-    }
-
-    .carta-nome {
-        font-size: 1.2em;
-    }
-
-    .controles button {
-        font-size: 0.9em;
-        padding: 8px 15px;
     }
 }
 
-/* Telas menores que 480px (celulares) */
 @media (max-width: 480px) {
-    h1 {
-        font-size: 1em;
+    body {
+        padding: 5px 0;
+    }
+    
+    .container {
+        width: 98%;
     }
 
     .arena {
@@ -248,26 +274,16 @@ h1 {
         padding: 10px;
     }
 
-    .carta-nome {
-        font-size: 1em;
-    }
-
-    .carta-atributos li {
-        padding: 6px;
-        font-size: 0.8em;
-    }
-
     .placar {
         font-size: 1em;
         padding: 8px;
+        flex-direction: row;
+        gap: 10px;
     }
 
     .controles button {
-        width: 100%;
+        width: 45%; 
+        flex-grow: 1;
         margin: 5px 0;
-    }
-
-    .resultado {
-        font-size: 1em;
     }
 }
